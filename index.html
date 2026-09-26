@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Cloud Practitioner Interactive Service Reference</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="guide-header">
+      <div>
+        <p class="eyebrow">AWS Certified Cloud Practitioner</p>
+        <h1>Interactive Service Reference + Exam Review</h1>
+        <p>Study AWS services by category, review certification domains from your uploaded notes, track your progress, and test yourself with practice questions.</p>
+      </div>
+      <button class="theme-toggle" id="themeToggle"><i class="ti ti-moon"></i> Toggle Theme</button>
+    </header>
+
+    <section class="stats-grid">
+      <div class="stat-card"><span id="totalServices">0</span><p>Total Services</p></div>
+      <div class="stat-card"><span id="viewedServices">0</span><p>Viewed Services</p></div>
+      <div class="stat-card"><span id="progressPercent">0%</span><p>Study Progress</p></div>
+      <div class="stat-card"><span>4</span><p>Exam Domains Added</p></div>
+    </section>
+
+    <section class="progress-wrapper">
+      <div class="progress-label">Study Progress</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </section>
+
+    <section class="top-controls">
+      <input type="text" id="searchServices" placeholder="Search services, exam domains, concepts, or connections..." />
+      <button class="control-btn" id="expandAllBtn">Expand All</button>
+      <button class="control-btn" id="collapseAllBtn">Collapse All</button>
+      <button class="control-btn" id="randomQuestionBtn">Random Question</button>
+      <button class="control-btn danger" id="resetProgressBtn">Reset Progress</button>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-view="services">AWS Services</button>
+      <button class="tab-btn" data-view="domains">Exam Domain Review</button>
+      <button class="tab-btn" data-view="quiz">Practice Quiz</button>
+    </nav>
+
+    <section class="view active" id="servicesView">
+      <section class="legend">
+        <span class="legend-title">Service tiers:</span>
+        <div class="legend-item"><div class="legend-dot core"></div>Core — exam critical</div>
+        <div class="legend-item"><div class="legend-dot common"></div>Common — frequently tested</div>
+        <div class="legend-item"><div class="legend-dot specialty"></div>Specialty — know the concept</div>
+      </section>
+
+      <section class="filter-bar" id="filterBar"></section>
+
+      <section class="relationship-box">
+        <h2>Common AWS Service Connection Flow</h2>
+        <div class="relationship-flow">
+          <span>Route 53</span><i class="ti ti-arrow-right"></i><span>CloudFront</span><i class="ti ti-arrow-right"></i><span>S3 / ELB</span><i class="ti ti-arrow-right"></i><span>EC2 / Lambda</span><i class="ti ti-arrow-right"></i><span>RDS / DynamoDB</span>
+        </div>
+        <p>A common AWS web architecture starts with DNS in Route 53, acceleration through CloudFront, compute through EC2 or Lambda, storage in S3, and application data in RDS or DynamoDB.</p>
+      </section>
+
+      <section class="categories-grid" id="catsGrid"></section>
+    </section>
+
+    <section class="view" id="domainsView">
+      <section class="domain-intro">
+        <h2>Exam Domain Review Added from Your File</h2>
+        <p>This section summarizes the key study points from the uploaded AWS Cloud Review document, organized by Cloud Practitioner exam domain.</p>
+      </section>
+      <div class="domain-grid" id="domainGrid"></div>
+    </section>
+
+    <section class="view" id="quizView">
+      <section class="quiz-section">
+        <h2>AWS Cloud Practitioner Practice Quiz</h2>
+        <div class="quiz-card">
+          <p id="quizQuestion">Click “Start Quiz” to begin.</p>
+          <div id="quizAnswers"></div>
+          <div class="quiz-actions">
+            <button class="control-btn" id="startQuizBtn">Start Quiz</button>
+            <button class="control-btn" id="nextQuizBtn">Next Question</button>
+          </div>
+          <p id="quizScore"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
